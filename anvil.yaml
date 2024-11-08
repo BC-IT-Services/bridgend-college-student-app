@@ -239,8 +239,8 @@ db_schema:
     server: full
     title: Validation_Failures
 dependencies: []
-metadata: {description: 'An open-source template of the Bridgend College student portal. ', logo_img: 'asset:CollegeLogo_Colored.png', title: '[Template] Student Portal'}
-name: Clone of [Template] Student Portal
+metadata: {description: 'An open-source template of the Bridgend College student app. ', logo_img: 'asset:CollegeLogo_Colored.png', title: '[Template] Student App'}
+name: '[Template] Student App'
 package_name: Student_Portal
 renamed: true
 runtime_options:

@@ -13,7 +13,6 @@ from .TimetableSession import TimetableSession
 
 from .TargetObject import TargetObject
 from .CitizenshipObject import CitizenshipObject
-from ..ReportAnAbsence import ReportAnAbsence
 from ..AddATarget import AddATarget
 
 from .. import Translations
