@@ -69,6 +69,10 @@ To learn more about Anvil, visit [https://anvil.works](https://anvil.works?utm_s
 
 ## Tutorials and documentation
 
+### Implementation Guidance
+
+Full implementation guidance is available here: [Bridgend College Student App - Open-Source Implementation Guidance](https://docs.google.com/document/d/1nygzJnGOjcb2l4wbrG1Gbfl-HgLEcx6mpEcQ-uYoCYw/)
+
 ### Tutorials
 
 If you are just starting out with Anvil, why not **[try the 10-minute Feedback Form tutorial](https://anvil.works/learn/tutorials/feedback-form?utm_source=github:app_README)**? It features step-by-step tutorials that will introduce you to the most important parts of Anvil.
