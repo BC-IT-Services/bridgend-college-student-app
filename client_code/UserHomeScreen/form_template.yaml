@@ -1,0 +1,205 @@
+components:
+- components:
+  - components:
+    - components:
+      - components:
+        - name: timetable_title
+          properties: {align: center, bold: true, foreground: var(--blue), role: homescreen-panel-title, text: Timetable}
+          type: Label
+        - event_bindings: {click: view_weekly_timetable_button_click}
+          layout_properties: {}
+          name: view_weekly_timetable_button
+          properties: {bold: false, font_size: null, icon: 'fa:calendar', icon_align: left, role: filled-button, spacing_above: medium, text: ''}
+          type: Button
+        layout_properties: {grid_position: 'LVLOAZ,OUJZYU'}
+        name: flow_panel_2
+        properties: {align: center}
+        type: FlowPanel
+      - layout_properties: {grid_position: 'ZAHWSR,ZIIZRA'}
+        name: timetable_error
+        properties: {error_message: There was an issue retrieving your timetable data.}
+        type: form:UserHomeScreen.Error
+      - layout_properties: {grid_position: 'HONKOO,JKXMRW'}
+        name: label_2
+        properties: {align: center, bold: true, font_size: 14, spacing_above: none, spacing_below: none, text: Please ensure you check your timetable regularly as sessions and their locations may change.}
+        type: Label
+      - components:
+        - event_bindings: {change: timetable_date_picker_change}
+          name: timetable_date_picker
+          properties: {align: center, format: '%A %d/%m/%Y', pick_time: false}
+          type: DatePicker
+        - layout_properties: {}
+          name: no_sessions_label
+          properties: {align: center, bold: false, italic: false, role: null, text: You have no sessions on the selected day., underline: false, visible: false}
+          type: Label
+        - name: selected_day_timetable
+          properties: {}
+          type: LinearPanel
+        layout_properties: {grid_position: 'CGUPKE,AQTXAY'}
+        name: no_error_timetable_panel
+        properties: {}
+        type: LinearPanel
+      layout_properties: {full_width_row: true, grid_position: 'ONUWRO,VDXQUZ MXTWWD,RJAWFM'}
+      name: timetable_panel
+      properties: {background: white, role: homescreen-panel, visible: true}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {}
+          name: targets_title
+          properties: {align: center, bold: true, foreground: var(--blue), role: homescreen-panel-title, text: Targets}
+          type: Label
+        - event_bindings: {click: add_target_button_click}
+          layout_properties: {}
+          name: add_target_button
+          properties: {bold: false, font_size: null, icon: 'fa:plus', icon_align: left, role: filled-button, spacing_above: medium, text: ''}
+          type: Button
+        layout_properties: {grid_position: 'ERAYRC,RFKVGW'}
+        name: flow_panel_1
+        properties: {align: center}
+        type: FlowPanel
+      - layout_properties: {grid_position: 'FUKBFI,QWCMDN'}
+        name: targets_error
+        properties: {error_message: There was an issue retrieving your target data.}
+        type: form:UserHomeScreen.Error
+      - components:
+        - layout_properties: {}
+          name: no_ilp
+          properties: {align: center, text: You haven't currently set any targets., visible: false}
+          type: Label
+        - name: target_row_limiter
+          properties: {show_more_buttons_visible: true}
+          type: form:RowLimiter
+        layout_properties: {grid_position: 'KIKXDN,LGVEWK'}
+        name: no_error_targets_panel
+        properties: {}
+        type: LinearPanel
+      layout_properties: {full_width_row: true, grid_position: 'ONUWRO,VDXQUZ HVNRYH,AAORHG'}
+      name: ilp_panel
+      properties: {background: white, role: homescreen-panel}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {grid_position: 'QMLYUQ,SNOSQL'}
+        name: attendance_title
+        properties:
+          align: center
+          bold: true
+          foreground: var(--blue)
+          role: homescreen-panel-title
+          text: |
+            Attendance
+        type: Label
+      - layout_properties: {grid_position: 'NLTBZI,FVSSTN'}
+        name: attendance_error
+        properties: {error_message: There was an issue retrieving your attendance data.}
+        type: form:UserHomeScreen.Error
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'KEDFGK,PJKBBI'}
+            name: attendance_perc_title
+            properties: {align: center, bold: true, font_size: 15, spacing_above: none, spacing_below: none, text: Attendance}
+            type: Label
+          - layout_properties: {grid_position: 'MHJNPH,BATZYQ'}
+            name: attendance_perc_label
+            properties: {align: center, background: '', bold: false, border: '', font_size: 25, spacing_above: none, spacing_below: none, text: 0%}
+            type: Label
+          layout_properties: {grid_position: 'HCCKJG,VOSNSZ SHLLPJ,UFYWTP'}
+          name: attendance_perc_panel
+          properties: {background: '#ef4348', foreground: black, role: attendance-panels, spacing_above: small, spacing_below: small}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'KEDFGK,PJKBBI'}
+            name: inclass_attendance_perc_title
+            properties: {align: center, bold: true, font_size: 15, spacing_above: none, spacing_below: none, text: In-Class Attendance}
+            type: Label
+          - layout_properties: {grid_position: 'MHJNPH,BATZYQ'}
+            name: inclass_attendance_perc_label
+            properties: {align: center, background: '', bold: false, border: '', font_size: 25, spacing_above: none, spacing_below: none, text: 0%}
+            type: Label
+          layout_properties: {grid_position: 'HCCKJG,VOSNSZ KKHERJ,NXOFYP'}
+          name: inclass_attendance_perc_panel
+          properties: {background: '#ef4348', foreground: black, role: attendance-panels, spacing_above: small, spacing_below: none}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'IBFGLE,PZLUXR'}
+            name: punc_perc_title
+            properties: {align: center, bold: true, font_size: 15, spacing_above: none, spacing_below: none, text: Punctuality}
+            type: Label
+          - layout_properties: {grid_position: 'ISOQIE,WPUYMX'}
+            name: punc_perc_label
+            properties: {align: center, bold: false, font_size: 25, spacing_above: none, spacing_below: none, text: 0%}
+            type: Label
+          layout_properties: {grid_position: 'HCCKJG,NFUPZK FKHUQU,GIYVZG'}
+          name: punc_perc_panel
+          properties: {background: '#ef4348', foreground: black, role: attendance-panels, spacing_above: small, spacing_below: small, visible: true}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'JSXLDP,JHXWUB'}
+            name: skills_attendance_perc_title
+            properties: {align: center, bold: true, font_size: 15, spacing_above: none, spacing_below: none, text: Skills Attendance}
+            type: Label
+          - layout_properties: {grid_position: 'MHJNPH,BATZYQ'}
+            name: skills_attendance_perc_label
+            properties: {align: center, background: '', bold: false, border: '', font_size: 25, spacing_above: none, spacing_below: none, text: 0%}
+            type: Label
+          layout_properties: {grid_position: 'HCCKJG,NFUPZK LFQCQK,XIALMD'}
+          name: skills_attendance_perc_panel
+          properties: {background: '#ef4348', foreground: black, role: attendance-panels, spacing_below: small}
+          type: ColumnPanel
+        layout_properties: {grid_position: 'TSTWNA,HQXNQL'}
+        name: no_error_attendance_panel
+        properties: {col_spacing: medium}
+        type: ColumnPanel
+      layout_properties: {full_width_row: true, grid_position: 'ONUWRO,OJAGMK EUOONF,IDITYF'}
+      name: timetable_panel_copy
+      properties: {background: white, col_spacing: medium, role: homescreen-panel}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {grid_position: 'QMLYUQ,SNOSQL'}
+        name: citizenship_title
+        properties: {align: center, background: '', bold: true, foreground: var(--blue), role: homescreen-panel-title, text: Citizenship}
+        type: Label
+      - layout_properties: {grid_position: 'UXAUQU,MAXEBV'}
+        name: citizenship_error
+        properties: {error_message: There was an issue retrieving your citizenship data.}
+        type: form:UserHomeScreen.Error
+      - components:
+        - layout_properties: {}
+          name: no_citizenship
+          properties: {align: center, text: You don't currently have any Citizenship information., visible: false}
+          type: Label
+        - name: citizenship_row_limiter
+          properties: {child_form: UserHomeScreen.CitizenshiObject, max_rows: 3}
+          type: form:RowLimiter
+        layout_properties: {grid_position: 'LBWLTJ,OXKLKE'}
+        name: no_error_citizenship_panel
+        properties: {}
+        type: LinearPanel
+      layout_properties: {full_width_row: true, grid_position: 'ONUWRO,OJAGMK HQYBVK,YITZLN'}
+      name: citizenship_panel
+      properties: {background: white, role: homescreen-panel}
+      type: ColumnPanel
+    layout_properties: {full_width_row: true, grid_position: 'HAIVOO,TFBXJZ'}
+    name: column_panel_1
+    properties: {col_widths: '{"VDXQUZ":20,"OJAGMK":20}'}
+    type: ColumnPanel
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {col_widths: '{"TFBXJZ":40,"SRKQMU":20}'}
+  type: ColumnPanel
+- layout_properties: {slot: left-nav}
+  name: nav
+  properties: {}
+  type: form:Nav
+- layout_properties: {slot: nav-right}
+  name: banner_utils
+  properties: {}
+  type: form:BannerUtils
+- layout_properties: {slot: title}
+  name: label_1
+  properties: {bold: false, foreground: White, text: Student Portal}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

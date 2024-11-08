@@ -1,0 +1,23 @@
+components:
+- layout_properties: {slot: icon}
+  name: image_1
+  properties: {height: 64, source: _/theme/Icons/ErrorIcon.png}
+  type: Image
+- data_bindings:
+  - {code: self.error_message, property: text, writeback: false}
+  layout_properties: {slot: error}
+  name: label_1
+  properties: {}
+  type: Label
+- layout_properties: {slot: space}
+  name: spacer_1
+  properties: {height: 5}
+  type: Spacer
+container:
+  properties:
+    html: "<style>\n  .error-card {\n    display: flex;\n    gap: 1rem;\n    flex-wrap: wrap;\n    position: relative;\n    align-items: center;\n    overflow: hidden;\n    border-radius: 20px;\n    /* box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);  */\n    border: 1px var(--red) solid;\n    padding: 5px;\n  }\n\n  .icon-container {\n    flex: 0 0 15%;\n  }\n\n  .message-container {\n    flex: 1;\n  }\n\n  @media (max-width: 768px) {\n    .error-card {\n      flex-direction: column; /* Stack elements vertically on mobile */\n      align-items: stretch; /* Ensures the containers take full width */\n    }\n  \n    .icon-container,\n    .desc-container {\n      flex: 0 0 100%; /* Stacks the containers on top of each other */\n      width: 100%;\n      margin-bottom: 10px; /* Add space between stacked elements */\n    }\n  }\n\n</style> \n\n<div class=\"containter\">\n  <div class=\"error-card\"> \n    <div class=\"icon-container\">\n      <div class=\"icon\" anvil-if-slot-empty=\"icon\" anvil-drop-slot=\"icon\">\n        Icon Slot\n      </div>\n      <div anvil-slot=\"icon\"></div>\n    </div>\n    <div class=\"message-container\">\n      <div class=\"error\" anvil-if-slot-empty=\"error\" anvil-drop-slot=\"error\">\n        Error Slot\n      </div>\n      <div anvil-slot=\"error\"></div>\n    </div>\n  </div>\n</div>\n\n<div anvil-if-slot-empty=\"space\" anvil-drop-slot=\"space\">\n    Spacer Slot\n</div>\n<div anvil-slot=\"space\"></div>\n"
+  type: HtmlTemplate
+custom_component: true
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', description: The message to display as an error, important: true, multiline: true, name: error_message, type: string}

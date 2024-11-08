@@ -1,0 +1,78 @@
+components:
+- layout_properties: {grid_position: 'KJOTVG,VDDMOH'}
+  name: title
+  properties: {bold: true, foreground: var(--blue), role: headline, text: Create a target}
+  type: Label
+- layout_properties: {grid_position: 'NUOSID,FWTSEI'}
+  name: target_title_label
+  properties: {bold: true, text: 'Target:'}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''target'']', property: text, writeback: true}
+  layout_properties: {grid_position: 'NUOSID,IVSZWL'}
+  name: target_input
+  properties: {placeholder: Enter a target...}
+  type: TextBox
+- layout_properties: {grid_position: 'OGZUVK,JVWLON'}
+  name: target_type_label
+  properties: {bold: true, italic: false, text: 'Target Type:'}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''target_type'']', property: selected_value, writeback: true}
+  layout_properties: {grid_position: 'OGZUVK,PWKKQB QWNNTZ,OZSGTC'}
+  name: target_type_dropdown
+  properties:
+    items: [Skills Target, Personal Target, Course Target]
+  type: DropDown
+- layout_properties: {grid_position: 'ZEPYHA,GKRZEQ'}
+  name: due_date_label
+  properties: {bold: true, text: 'Due Date:'}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''end_date_time'']', property: date, writeback: true}
+  layout_properties: {grid_position: 'ZEPYHA,IZWARQ'}
+  name: deadline_picker
+  properties: {format: '%A %d/%m/%Y ', placeholder: Due date (DD/MM/YYYY)}
+  type: DatePicker
+- layout_properties: {grid_position: 'UBDOBT,OSXPKI'}
+  name: label_2
+  properties: {bold: true, text: Details, visible: false}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''additional_info'']', property: text, writeback: true}
+  layout_properties: {grid_position: 'OMGAHM,WKBGWC'}
+  name: objective_input
+  properties: {height: 91, visible: false}
+  type: TextArea
+- components:
+  - layout_properties: {}
+    name: steps_label
+    properties: {bold: true, font_size: 20, foreground: var(--blue), text: Steps}
+    type: Label
+  - event_bindings: {click: add_step_button_click}
+    layout_properties: {}
+    name: add_step_button
+    properties: {enabled: true, icon: 'fa:plus', role: filled-button, text: ''}
+    type: Button
+  layout_properties: {grid_position: 'BQBBDA,LIEAJV'}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+- components:
+  - name: repeating_steps
+    properties: {item_template: AddATarget.RepeatingStep}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'FMXQXH,GMIOIN'}
+  name: data_grid_1
+  properties:
+    auto_header: false
+    columns:
+    - {data_key: column_1, expand: false, id: JKSDUP, title: Column 1, width: 557}
+    - {data_key: column_2, expand: true, id: VJQQOR, title: Column 2}
+    rows_per_page: 5
+    show_page_controls: false
+  type: DataGrid
+container:
+  properties: {col_widths: '{"GKRZEQ":10,"IZWARQ":50,"FWTSEI":10,"IVSZWL":50,"JVWLON":10,"PWKKQB":50}'}
+  type: ColumnPanel
+is_package: true

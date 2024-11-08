@@ -1,0 +1,25 @@
+components:
+- layout_properties: {grid_position: 'NOEDWQ,FFDURB'}
+  name: spacer_1
+  properties: {height: 44}
+  type: Spacer
+- layout_properties: {grid_position: 'UUCUYG,FAILAQ'}
+  name: image_1
+  properties: {height: 224, source: _/theme/CollegeLogo_Colored.png}
+  type: Image
+- layout_properties: {grid_position: 'EBMWDX,TUCEQJ'}
+  name: spacer_2
+  properties: {height: 23}
+  type: Spacer
+- layout_properties: {grid_position: 'USBRHR,RFJQHR'}
+  name: label_2
+  properties: {align: center, font_size: 25, text: Prohibited User}
+  type: Label
+- data_bindings:
+  - {code: 'f''The email address: {self.email}, is not associated with Bridgend College, please login with your @bridgend.ac.uk email address.''', property: text, writeback: false}
+  layout_properties: {grid_position: 'JVZHOE,FIJCNM'}
+  name: label_1
+  properties: {align: center}
+  type: Label
+container: {type: ColumnPanel}
+is_package: true

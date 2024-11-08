@@ -1,0 +1,33 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''set_by'']', property: text, writeback: false}
+  layout_properties: {slot: name}
+  name: set_by_label
+  properties: {align: center, bold: true, role: timetable-session-text, spacing_above: none, spacing_below: none}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''end_date_time''].strftime("%d/%m/%Y")', property: text, writeback: false}
+  layout_properties: {slot: date}
+  name: start_date_label
+  properties: {align: center, bold: true, role: timetable-session-text, spacing_above: none, spacing_below: none}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''target'']', property: text, writeback: false}
+  layout_properties: {slot: desc}
+  name: target_label
+  properties: {foreground: black, role: timetable-session-text, spacing_above: none, spacing_below: none}
+  type: Label
+- event_bindings: {click: view_target_button_click}
+  layout_properties: {slot: select-button}
+  name: view_target_button
+  properties: {text: ''}
+  type: Button
+- layout_properties: {slot: space}
+  name: spacer_1
+  properties: {height: '5'}
+  type: Spacer
+container:
+  properties:
+    html: "<style>\n  .card {\n    display: flex;\n    flex-wrap: wrap;\n    position: relative;\n    align-items: center;\n    overflow: hidden;\n    border-radius: 20px;\n    /* box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);  */\n    border: 1px var(--blue) solid;\n    padding: 5px;\n    transition: 0.2s;\n  }\n\n  .info-container {\n    flex: 0 0 25%;\n  }\n\n  .desc-container {\n    flex: 1;\n  }\n\n  .select-button {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    cursor: pointer;\n    /* font-size: 200px; */\n  }\n\n  .card:hover {\n    background-color: var(--blue);\n  }\n  \n  .select-button > * > * > .btn {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    border-radius:0px;\n  }\n\n  .select-button > * > * > .btn:hover {\n    background-color: transparent;\n  }\n\n  @media (max-width: 768px) {\n    .card {\n      flex-direction: column; /* Stack elements vertically on mobile */\n      align-items: stretch; /* Ensures the containers take full width */\n    }\n  \n    .info-container,\n    .desc-container {\n      flex: 0 0 100%; /* Stacks the containers on top of each other */\n      width: 100%;\n      margin-bottom: 10px; /* Add space between stacked elements */\n    }\n  }\n\n</style> \n\n<div class=\"containter\">\n<div class=\"card card-hover\">\n  <div class=\"info-container\">\n    <div class=\"name\" anvil-if-slot-empty=\"name\" anvil-drop-slot=\"name\">\n      Name Slot\n    </div>\n    <div anvil-slot=\"name\"></div>\n    <div class=\"date\" anvil-if-slot-empty=\"date\" anvil-drop-slot=\"date\">\n      Date Slot\n    </div>\n    <div anvil-slot=\"date\"></div>\n  </div>\n  <div class=\"desc-container\">\n    <div class=\"desc\" anvil-if-slot-empty=\"desc\" anvil-drop-slot=\"desc\">\n      Description Slot\n    </div>\n    <div anvil-slot=\"desc\"></div>\n  </div>\n      \n  <div class=\"select-button\">\n    <div anvil-if-slot-empty=\"select-button\" anvil-drop-slot=\"select-button\">\n      Button Slot\n    </div>\n  <div anvil-slot=\"select-button\"></div>\n  </div>\n</div>\n\n<div anvil-if-slot-empty=\"space\" anvil-drop-slot=\"space\">\n    Spacer Slot\n</div>\n<div anvil-slot=\"space\"></div>\n"
+  type: HtmlTemplate
+is_package: true

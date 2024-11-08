@@ -1,0 +1,41 @@
+components:
+- layout_properties: {grid_position: 'HKQVUN,QYANNY'}
+  name: title_label
+  properties: {bold: true, foreground: var(--blue), role: headline, text: Session information}
+  type: Label
+- layout_properties: {grid_position: 'QXVNNL,PWKHCJ'}
+  name: tutor_label
+  properties: {}
+  type: RichText
+- layout_properties: {grid_position: 'SYMPYI,CKVQVA VZKYCE,WIVJXJ'}
+  name: session_title_label
+  properties: {}
+  type: RichText
+- layout_properties: {grid_position: 'SYMPYI,CKVQVA LNNVBV,HXVTTU'}
+  name: session_time_label
+  properties: {}
+  type: RichText
+- data_bindings: []
+  layout_properties: {grid_position: 'SYMPYI,MHTQBF CXVFUE,XTRKYS'}
+  name: room_label
+  properties: {}
+  type: RichText
+- layout_properties: {grid_position: 'SYMPYI,MHTQBF HBESEP,YIKAYE'}
+  name: session_time_info_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'MPKAVD,SYPMFJ'}
+  name: map_info_label
+  properties: {bold: true, foreground: var(--blue), role: title, text: 'Where is this session?'}
+  type: Label
+- event_bindings: {click: success_hub_button_click}
+  layout_properties: {grid_position: 'MPKAVD,ZDARDL'}
+  name: success_hub_button
+  properties: {align: full, role: filled-button, text: Go to the Success Hub}
+  type: Button
+- layout_properties: {grid_position: 'ELNRAG,FWORSB'}
+  name: map_image
+  properties: {height: 404}
+  type: Image
+container: {type: ColumnPanel}
+is_package: true

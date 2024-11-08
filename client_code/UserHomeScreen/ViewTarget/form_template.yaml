@@ -1,0 +1,101 @@
+components:
+- layout_properties: {grid_position: 'JMEXOA,RNTTPN'}
+  name: title
+  properties: {bold: true, foreground: var(--blue), role: headline, text: Target Information}
+  type: Label
+- data_bindings:
+  - {code: 'f"**Set by:** {self.item[''set_by'']}"', property: content, writeback: false}
+  layout_properties: {grid_position: 'BXQJMG,TSCMCG'}
+  name: set_by_label
+  properties: {}
+  type: RichText
+- layout_properties: {grid_position: 'BXQJMG,ZGTQAS CYWHZQ,GQPATF'}
+  name: target_type_label
+  properties: {}
+  type: RichText
+- data_bindings:
+  - {code: 'f"**Date set:** {self.item[''start_date_time''].strftime(''%A %d/%m/%Y'')}"', property: content, writeback: false}
+  layout_properties: {grid_position: 'LZCSBT,UAZULR'}
+  name: set_date_label
+  properties: {}
+  type: RichText
+- data_bindings:
+  - {code: 'f"**Target completion date:** {self.item[''end_date_time''].strftime(''%A %d/%m/%Y'')}"', property: content, writeback: false}
+  layout_properties: {grid_position: 'LZCSBT,TQQTNP'}
+  name: end_date_label
+  properties: {}
+  type: RichText
+- layout_properties: {grid_position: 'CHMOXE,NMVXFN'}
+  name: objective_title_label
+  properties: {bold: true, foreground: var(--blue), role: title, text: 'Objective:'}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''target'']', property: text, writeback: false}
+  layout_properties: {grid_position: 'FWQKLH,GVFZZB'}
+  name: objective_label
+  properties: {}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''additional_info''] is not ""', property: visible, writeback: false}
+  layout_properties: {grid_position: 'ZFEKQM,YPEQUT'}
+  name: details_title_label
+  properties: {bold: true, foreground: var(--blue), role: title, text: Details, visible: true}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''additional_info'']', property: text, writeback: false}
+  - {code: 'self.item[''additional_info''] is not ""', property: visible, writeback: false}
+  layout_properties: {grid_position: 'VCGAHS,MIFTMR'}
+  name: details_label
+  properties: {visible: true}
+  type: Label
+- components:
+  - layout_properties: {}
+    name: steps_title
+    properties: {bold: true, foreground: var(--blue), role: title, text: Steps}
+    type: Label
+  - name: repeating_steps
+    properties: {item_template: UserHomeScreen.ViewTarget.Step}
+    type: RepeatingPanel
+  - components:
+    - data_bindings:
+      - {code: '"" if self.item[''target_stats''] != "NOT STARTED" else "var(--red)"', property: background, writeback: false}
+      - {code: '"" if self.item[''target_stats''] != "NOT STARTED" else "black"', property: foreground, writeback: false}
+      - {code: 'self.item[''set_by''] == "You"', property: enabled, writeback: false}
+      - {code: '"" if self.item[''target_stats''] == "NOT STARTED" else "filled-button"', property: role, writeback: false}
+      - {code: '"center" if self.item[''target_stats''] != "NOT STARTED" else "full"', property: align, writeback: false}
+      event_bindings: {click: not_started_button_click}
+      layout_properties: {grid_position: 'LBVZCB,AVDLAI'}
+      name: not_started_button
+      properties: {background: '', foreground: '', role: filled-button, text: Not started}
+      type: Button
+    - data_bindings:
+      - {code: '"" if self.item[''target_stats''] != "IN PROGRESS" else "var(--yellow)"', property: background, writeback: false}
+      - {code: 'self.item[''set_by''] == "You"', property: enabled, writeback: false}
+      - {code: '"" if self.item[''target_stats''] != "IN PROGRESS" else "black"', property: foreground, writeback: false}
+      - {code: '"" if self.item[''target_stats''] == "IN PROGRESS" else "filled-button"', property: role, writeback: false}
+      - {code: '"center" if self.item[''target_stats''] != "IN PROGRESS" else "full"', property: align, writeback: false}
+      event_bindings: {click: in_progress_button_click}
+      layout_properties: {grid_position: 'LBVZCB,IPRIQJ'}
+      name: in_progress_button
+      properties: {align: center, background: '', border: '', foreground: '', role: filled-button, text: In progress}
+      type: Button
+    - data_bindings:
+      - {code: '"" if self.item[''target_stats''] != "COMPLETED" else "var(--green)"', property: background, writeback: false}
+      - {code: '"" if self.item[''target_stats''] != "COMPLETED" else "black"', property: foreground, writeback: false}
+      - {code: 'self.item[''set_by''] == "You"', property: enabled, writeback: false}
+      - {code: '"" if self.item[''target_stats''] == "COMPLETED" else "filled-button"', property: role, writeback: false}
+      - {code: '"center" if self.item[''target_stats''] != "COMPLETED" else "full"', property: align, writeback: false}
+      event_bindings: {click: complete_button_click}
+      layout_properties: {grid_position: 'LBVZCB,UCIJOH'}
+      name: complete_button
+      properties: {background: '', foreground: '', role: filled-button, text: Complete}
+      type: Button
+    name: column_panel_1
+    properties: {}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'NCEHUF,EZMUSB'}
+  name: steps_panel
+  properties: {}
+  type: LinearPanel
+container: {type: ColumnPanel}
+is_package: true

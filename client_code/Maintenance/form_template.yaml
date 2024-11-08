@@ -1,0 +1,41 @@
+components:
+- layout_properties: {grid_position: 'OLPLKW,EMOZPV'}
+  name: spacer_1
+  properties: {height: '50'}
+  type: Spacer
+- layout_properties: {grid_position: 'MXHBSI,NAQJNA'}
+  name: logo
+  properties: {source: _/theme/CollegeLogo_Colored.png}
+  type: Image
+- layout_properties: {grid_position: 'MXHBSI,CBJYZH'}
+  name: maintenance_icon
+  properties: {source: _/theme/Icons/MaintenanceIcon.png}
+  type: Image
+- layout_properties: {grid_position: 'NPQWGK,SCYMKB'}
+  name: label_1
+  properties: {align: center, bold: true, foreground: var(--blue), role: homescreen-panel-title, text: 'Maintenance in progress '}
+  type: Label
+- layout_properties: {grid_position: 'NPQWGK,ULDJFO ZTEHSL,DIILHB'}
+  name: label_1_copy
+  properties: {align: center, bold: true, foreground: var(--blue), role: homescreen-panel-title, text: Cynnal a chadw ar y gweill}
+  type: Label
+- layout_properties: {grid_position: 'SYFCWA,LLBTQH'}
+  name: label_2
+  properties:
+    align: center
+    text: |-
+      The Student Portal is currently undergoing maintenance and will be back online shortly. Please check back again in a few minutes.
+
+      Thank you for your patience.
+  type: Label
+- layout_properties: {grid_position: 'SYFCWA,MPSJNR'}
+  name: label_3
+  properties:
+    align: center
+    text: |-
+      Mae Porth Myfyrwyr yn cael ei gynnal a'i gadw ar hyn o bryd a bydd yn ôl ar-lein yn fuan. Gwiriwch yn ôl eto ymhen ychydig funudau.
+
+      Diolch am eich amynedd.
+  type: Label
+container: {type: ColumnPanel}
+is_package: true

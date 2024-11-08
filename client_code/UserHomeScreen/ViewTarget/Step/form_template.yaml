@@ -1,0 +1,32 @@
+components:
+- components:
+  - data_bindings:
+    - {code: 'f"{self.item[''index''] + 1}."', property: text, writeback: false}
+    name: step_index
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''step''][''step'']', property: text, writeback: false}
+    layout_properties: {expand: true}
+    name: step_label
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''step''][''status'']', property: selected_value, writeback: false}
+    event_bindings: {change: status_dropdown_change}
+    layout_properties: {width: 200}
+    name: status_dropdown
+    properties:
+      align: full
+      background: ''
+      border: ''
+      foreground: black
+      include_placeholder: false
+      items: [Not started, In progress, Complete]
+    type: DropDown
+  layout_properties: {grid_position: 'ZGRUUV,BVCAJD'}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+container: {type: ColumnPanel}
+is_package: true

@@ -1,0 +1,56 @@
+components:
+- layout_properties: {grid_position: 'YPZYZP,PDSGFW'}
+  name: image_1
+  properties: {height: 145, source: _/theme/CollegeLogo_Colored.png}
+  type: Image
+- layout_properties: {grid_position: 'FLTXQE,DZZTLU'}
+  name: spacer_1
+  properties: {height: '9'}
+  type: Spacer
+- layout_properties: {grid_position: 'NLCTIO,PZLENI'}
+  name: inserted_items
+  properties: {}
+  type: LinearPanel
+- event_bindings: {click: home_button_click}
+  layout_properties: {grid_position: 'DLXKZY,PXALPV'}
+  name: home_button
+  properties: {align: full, foreground: '', icon: 'fa:home', role: filled-button, text: Home}
+  type: Button
+- layout_properties: {grid_position: 'ZYJNMH,PHJFOW'}
+  name: spacer_2_copy_copy
+  properties: {height: 10}
+  type: Spacer
+- event_bindings: {click: hub_button_click}
+  layout_properties: {grid_position: 'FADSDV,IQTKGH'}
+  name: hub_button
+  properties: {align: full, icon: 'fa:rocket', role: filled-button, text: Hub}
+  type: Button
+- event_bindings: {click: safeguarding_button_click}
+  layout_properties: {grid_position: 'PIBUCS,MZSTIN'}
+  name: safeguarding_button
+  properties: {align: full, icon: 'fa:warning', role: filled-button, text: Report a concern}
+  type: Button
+- layout_properties: {grid_position: 'CUSJNJ,DWQARU'}
+  name: spacer_2_copy
+  properties: {height: 10}
+  type: Spacer
+- components:
+  - event_bindings: {click: new_chat_button_click}
+    layout_properties: {}
+    name: new_chat_button
+    properties: {align: full, foreground: '', icon: 'fa:plus', role: filled-button, text: New Chat}
+    type: Button
+  - layout_properties: {}
+    name: your_conversations_label
+    properties: {align: center, foreground: var(--blue), text: Your conversations, visible: false}
+    type: Label
+  - layout_properties: {}
+    name: conversation_row_limiter
+    properties: {show_more_buttons_visible: false}
+    type: form:RowLimiter
+  layout_properties: {grid_position: 'CKQMVZ,HAKGUC'}
+  name: linear_panel_1
+  properties: {}
+  type: LinearPanel
+container: {type: ColumnPanel}
+is_package: true

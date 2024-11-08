@@ -1,0 +1,16 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''step''][''name'']', property: text, writeback: true}
+  event_bindings: {change: step_input_change, pressed_enter: step_input_pressed_enter}
+  layout_properties: {column: JKSDUP}
+  name: step_input
+  properties: {}
+  type: TextBox
+- data_bindings: []
+  event_bindings: {click: delete_button_click}
+  layout_properties: {column: VJQQOR}
+  name: delete_button
+  properties: {border: '', icon: 'fa:trash', role: filled-button, text: Delete}
+  type: Button
+container: {type: DataRowPanel}
+is_package: true

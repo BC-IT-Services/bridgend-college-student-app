@@ -1,0 +1,33 @@
+components:
+- data_bindings:
+  - {code: self.label_text, property: text, writeback: false}
+  layout_properties: {slot: label}
+  name: label
+  properties: {bold: true, font_size: 30, foreground: '', role: timetable-session-text, text: Success Hub}
+  type: Label
+- event_bindings: {click: button_click}
+  layout_properties: {slot: select-button}
+  name: button
+  properties: {text: ''}
+  type: Button
+- layout_properties: {slot: space}
+  name: spacer_1
+  properties: {height: '10'}
+  type: Spacer
+- data_bindings:
+  - {code: self.icon, property: source, writeback: false}
+  layout_properties: {slot: icon}
+  name: icon_image
+  properties: {height: 65}
+  type: Image
+container:
+  properties:
+    foreground: ''
+    html: "<style>\n  .hub-card {\n    position: relative;\n    overflow: hidden;\n    border-radius: 20px;\n    height: 150px;\n    /* box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);  */\n    border: 1px var(--blue) solid;\n    padding: 5px;\n    transition: 0.2s;\n  }\n\n  .select-button {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    cursor: pointer;\n    /* font-size: 200px; */\n  }\n\n  .label-container {\n    position: absolute;\n    left: 3%;\n  }\n  .icon-container {\n    position: absolute;\n    right:3%;\n    bottom:3%;\n    width: 75px;\n    height:75px;\n  }\n  \n  .hub-card:hover {\n    background-color: var(--blue);\n  }\n  \n  .select-button > * > * > .btn {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    border-radius:0px;\n  }\n\n  .select-button > * > * > .btn:hover {\n    background-color: transparent;\n  }\n\n</style> \n\n<div class=\"containter\">\n  <div class=\"hub-card card-hover\">\n    <div class=\"label-container\">\n      <div class=\"label\" anvil-if-slot-empty=\"label\" anvil-drop-slot=\"label\">\n        Label Slot\n      </div>\n      <div anvil-slot=\"label\"></div>\n    </div>\n\n    <div class=\"icon-container\">\n      <div class=\"icon\" anvil-if-slot-empty=\"icon\" anvil-drop-slot=\"icon\">\n        Icon Slot\n      </div>\n      <div anvil-slot=\"icon\"></div>\n    </div>\n      \n    <div class=\"select-button\">\n      <div anvil-if-slot-empty=\"select-button\" anvil-drop-slot=\"select-button\">\n        Button Slot\n      </div>\n      <div anvil-slot=\"select-button\"></div>\n    </div>\n  </div>\n</div>\n\n<div anvil-if-slot-empty=\"space\" anvil-drop-slot=\"space\">\n    Spacer Slot\n</div>\n<div anvil-slot=\"space\"></div>\n"
+  type: HtmlTemplate
+custom_component: true
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', important: true, name: url, type: string}
+- {default_value: '', description: The text in the label, important: true, name: label_text, type: string}
+- {accept: image/*, description: The icon to display in the bottom right, important: true, name: icon, type: uri}

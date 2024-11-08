@@ -1,0 +1,10 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''label'']', property: text, writeback: false}
+  event_bindings: {click: view_conversation_button_click}
+  layout_properties: {grid_position: 'GQYHAG,ULJKHC'}
+  name: view_conversation_button
+  properties: {align: full, icon: 'fa:comment', role: filled-button, text: button_1, visible: true}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

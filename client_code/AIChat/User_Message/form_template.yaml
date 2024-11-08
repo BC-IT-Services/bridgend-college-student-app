@@ -1,0 +1,30 @@
+components:
+- components:
+  - components:
+    - data_bindings:
+      - {code: self.text, property: text, writeback: false}
+      layout_properties: {grid_position: 'RSVQKG,THJFIS'}
+      name: label_1
+      properties: {text: Uninitialised}
+      type: Label
+    layout_properties: {width: 500}
+    name: outlined_card_1
+    properties: {background: white, col_spacing: medium, role: ai-chat-message}
+    type: ColumnPanel
+  - layout_properties: {width: 6}
+    name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+  - name: first_name_label
+    properties: {align: center, background: var(--green), bold: true, role: initial-icon}
+    type: Label
+  layout_properties: {grid_position: 'HBXWEV,DWCNMD'}
+  name: flow_panel_1
+  properties: {align: right, role: null, spacing: none, spacing_below: small, vertical_align: full}
+  type: FlowPanel
+container: {type: ColumnPanel}
+custom_component: true
+events: []
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', important: true, name: text, type: string}

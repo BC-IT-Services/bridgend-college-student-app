@@ -1,0 +1,27 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''session_title'']', property: text, writeback: false}
+  layout_properties: {slot: label}
+  name: course_label
+  properties: {bold: true, role: timetable-session-text, spacing_above: none, spacing_below: none}
+  type: Label
+- data_bindings:
+  - {code: 'f"{self.item[''start_time''].strftime(''%H:%M'')} - {self.item[''end_time''].strftime(''%H:%M'')} | {self.item[''room'']}"', property: text, writeback: false}
+  layout_properties: {slot: status}
+  name: time_label
+  properties: {foreground: black, role: timetable-session-text, spacing_above: none, spacing_below: none}
+  type: Label
+- event_bindings: {click: view_session_button_click}
+  layout_properties: {slot: select-button}
+  name: view_session_button
+  properties: {text: ''}
+  type: Button
+- layout_properties: {slot: space}
+  name: spacer_1
+  properties: {height: 7.6999969482421875}
+  type: Spacer
+container:
+  properties:
+    html: "<style>\n  .timetable-card {\n    position: relative;\n    overflow: hidden;\n    border-radius: 20px;\n    /* box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);  */\n    border: 1px var(--blue) solid;\n    padding: 5px;\n    transition: 0.2s;\n  }\n\n  .select-button {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    cursor: pointer;\n    /* font-size: 200px; */\n  }\n\n  .timetable-card:hover {\n    background-color: var(--blue);\n  }\n  \n  .select-button > * > * > .btn {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    border-radius:0px;\n  }\n\n  .select-button > * > * > .btn:hover {\n    background-color: transparent;\n  }\n\n</style>\n\n<div class=\"containter\">\n<div class=\"timetable-card card-hover\">\n  <div class=\"label\" anvil-if-slot-empty=\"label\" anvil-drop-slot=\"label\">\n    Course Slot\n  </div>\n  <div anvil-slot=\"label\"></div>\n  <div class=\"status\" anvil-if-slot-empty=\"status\" anvil-drop-slot=\"status\">\n    Time Slot\n  </div>\n  <div anvil-slot=\"status\"></div>\n      \n  <div class=\"select-button\">\n    <div anvil-if-slot-empty=\"select-button\" anvil-drop-slot=\"select-button\">\n      Button Slot\n    </div>\n  <div anvil-slot=\"select-button\"></div>\n</div>\n</div>\n\n<div anvil-if-slot-empty=\"space\" anvil-drop-slot=\"space\">\n    Spacer Slot\n</div>\n<div anvil-slot=\"space\"></div>\n"
+  type: HtmlTemplate
+is_package: true
